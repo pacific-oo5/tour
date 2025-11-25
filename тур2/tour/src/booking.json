@@ -1,0 +1,81 @@
+{
+  "bookings": [
+    {
+      "id": 1,
+      "userId": 2,
+      "tourId": 3,
+      "tourTitle": "Мальдивы",
+      "userName": "Иван Иванов",
+      "email": "ivan@mail.com",
+      "date": "2025-11-17T14:00:00.000Z",
+      "price": 1200,
+      "paymentStatus": "paid"
+    },
+    {
+      "id": 2,
+      "userId": 3,
+      "tourId": 5,
+      "tourTitle": "Япония",
+      "userName": "Алина Петрова",
+      "email": "alina@mail.com",
+      "date": "2025-12-01T10:00:00.000Z",
+      "price": 2200,
+      "paymentStatus": "pending"
+    },
+    {
+      "id": 3,
+      "userId": 4,
+      "tourId": 5,
+      "tourTitle": "Япония",
+      "userName": "Алексей Смирнов",
+      "email": "alex@mail.com",
+      "date": "2025-12-02T15:30:00.000Z",
+      "price": 2200,
+      "paymentStatus": "paid"
+    },
+    {
+      "id": 4,
+      "userId": 5,
+      "tourId": 6,
+      "tourTitle": "Италия",
+      "userName": "Мария Кузнецова",
+      "email": "maria@mail.com",
+      "date": "2025-12-05T12:00:00.000Z",
+      "price": 1800,
+      "paymentStatus": "paid"
+    },
+    {
+      "id": 5,
+      "userId": 6,
+      "tourId": 7,
+      "tourTitle": "Франция",
+      "userName": "Дмитрий Иванов",
+      "email": "dmitry@mail.com",
+      "date": "2025-12-08T09:00:00.000Z",
+      "price": 2000,
+      "paymentStatus": "pending"
+    },
+    {
+      "id": 6,
+      "userId": 7,
+      "tourId": 3,
+      "tourTitle": "Мальдивы",
+      "userName": "Ольга Петрова",
+      "email": "olga@mail.com",
+      "date": "2025-12-10T16:00:00.000Z",
+      "price": 1200,
+      "paymentStatus": "paid"
+    },
+    {
+      "id": 7,
+      "userId": 8,
+      "tourId": 8,
+      "tourTitle": "Египет",
+      "userName": "Сергей Лебедев",
+      "email": "sergey@mail.com",
+      "date": "2025-12-12T11:00:00.000Z",
+      "price": 1500,
+      "paymentStatus": "paid"
+    }
+  ]
+}

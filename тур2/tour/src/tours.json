@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "title": "Мальдивы",
+    "description": "7 дней на островах мечты. Включено проживание и питание.",
+    "price": 1200,
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 2,
+    "title": "Париж",
+    "description": "Романтика, Эйфелева башня, французская кухня.",
+    "price": 900,
+    "image": "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 3,
+    "title": "Швейцария",
+    "description": "Альпийские вершины и уютные горные отели.",
+    "price": 1500,
+    "image": "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 4,
+    "title": "Япония",
+    "description": "Сакура, древняя культура и Токио.",
+    "price": 1350,
+    "image": "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 5,
+    "title": "Бали",
+    "description": "Океан, серфинг, вулканы и тропическая природа.",
+    "price": 1100,
+    "image": "https://images.unsplash.com/photo-1524224546775-1f205e6d214a?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 6,
+    "title": "Турция",
+    "description": "5* отели, море, all inclusive.",
+    "price": 700,
+    "image": "https://images.unsplash.com/photo-1526744441595-6d6df3c9e9a1?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 7,
+    "title": "Дубай",
+    "description": "Небоскребы, пустыня и роскошный отдых.",
+    "price": 1300,
+    "image": "https://images.unsplash.com/photo-1504274066651-8d31a536b11a?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 8,
+    "title": "Египет",
+    "description": "Пирамиды, море, дайвинг.",
+    "price": 600,
+    "image": "https://images.unsplash.com/photo-1518684079-e9bd79e9e9e5?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 9,
+    "title": "Италия",
+    "description": "Пицца, архитектура, море.",
+    "price": 1100,
+    "image": "https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 10,
+    "title": "Таиланд",
+    "description": "Пляжи, храмы, ночная жизнь.",
+    "price": 800,
+    "image": "https://images.unsplash.com/photo-1508335013247-3c47e4c5e8f2?auto=format&fit=crop&w=800&q=80"
+  }
+]
