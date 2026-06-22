@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>🚢 Предсказание</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="/">🚢 Titanic Survival</a>
+            <a href="/logout" class="btn btn-light btn-sm">Выйти</a>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <div class="card shadow">
+                    <div class="card-header bg-primary text-white">
+                        <h4>📝 Введите данные пассажира</h4>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST">
+                            <div class="mb-3">
+                                <label class="form-label">🚢 Класс каюты</label>
+                                <select class="form-select" name="pclass" required>
+                                    <option value="1">1-й класс</option>
+                                    <option value="2" selected>2-й класс</option>
+                                    <option value="3">3-й класс</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">👤 Пол</label>
+                                <select class="form-select" name="sex" required>
+                                    <option value="male">Мужчина</option>
+                                    <option value="female">Женщина</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">🎂 Возраст (лет)</label>
+                                <input type="number" class="form-control" name="age" placeholder="30">
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">💰 Цена билета ($)</label>
+                                <input type="number" class="form-control" name="fare" placeholder="32.50" step="0.01">
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">⚓ Порт посадки</label>
+                                <select class="form-select" name="embarked">
+                                    <option value="C">Шербур</option>
+                                    <option value="Q">Квинстаун</option>
+                                    <option value="S" selected>Саутгемптон</option>
+                                </select>
+                            </div>
+
+                            <hr>
+                            <h6>👨‍👩‍👧‍👦 Кто едет с вами?</h6>
+
+                            <div class="mb-3">
+                                <label class="form-label">💑 Супруг/супруга в поездке?</label>
+                                <select class="form-select" name="spouse">
+                                    <option value="0">Нет</option>
+                                    <option value="1">Да</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">👫 Братья или сёстры?</label>
+                                <select class="form-select" name="siblings">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5+</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">👨‍👩‍👧 Родители?</label>
+                                <select class="form-select" name="parents">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">👶 Дети?</label>
+                                <select class="form-select" name="children">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5+</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary w-100">🚀 Предсказать</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

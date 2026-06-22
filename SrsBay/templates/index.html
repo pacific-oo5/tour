@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚢 Titanic Survival - Главная</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- НАВИГАЦИЯ -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-ship"></i> Titanic Survival
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">
+                            <i class="fas fa-home"></i> Главная
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/predict">
+                            <i class="fas fa-rocket"></i> Предсказание
+                        </a>
+                    </li>
+                    {% if current_user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/profile">
+                                <i class="fas fa-user"></i> {{ current_user.FullName or current_user.Username or current_user.Login }}
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout">
+                                <i class="fas fa-sign-out-alt"></i> Выйти
+                            </a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">
+                                <i class="fas fa-sign-in-alt"></i> Войти
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/register">
+                                <i class="fas fa-user-plus"></i> Регистрация
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ГЛАВНЫЙ БАННЕР -->
+    <div class="container-fluid bg-dark text-white py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1 class="display-3">
+                        <i class="fas fa-ship text-primary"></i> Titanic Survival
+                    </h1>
+                    <p class="lead">
+                        Система предсказания выживаемости пассажиров Титаника
+                        на основе машинного обучения
+                    </p>
+                    {% if not current_user.is_authenticated %}
+                        <a href="/register" class="btn btn-primary btn-lg">
+                            <i class="fas fa-user-plus"></i> Начать
+                        </a>
+                    {% else %}
+                        <a href="/predict" class="btn btn-primary btn-lg">
+                            <i class="fas fa-rocket"></i> Предсказать
+                        </a>
+                    {% endif %}
+                </div>
+                <div class="col-md-4 text-center">
+                    <i class="fas fa-ship" style="font-size: 150px; opacity: 0.5;"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- СТАТИСТИКА -->
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card text-white bg-primary">
+                    <div class="card-body text-center">
+                        <h3>{{ total_passengers or 891 }}</h3>
+                        <p>Всего пассажиров</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-white bg-success">
+                    <div class="card-body text-center">
+                        <h3>{{ survived_count or 342 }}</h3>
+                        <p>Выжило</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-white bg-danger">
+                    <div class="card-body text-center">
+                        <h3>{{ died_count or 549 }}</h3>
+                        <p>Погибло</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-white bg-info">
+                    <div class="card-body text-center">
+                        <h3>{{ "%.1f"|format(survival_rate or 38.4) }}%</h3>
+                        <p>Общая выживаемость</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ИНФОРМАЦИОННЫЕ КАРТОЧКИ -->
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-users" style="font-size: 48px; color: #0d6efd;"></i>
+                        <h5 class="card-title mt-3">Кто выжил?</h5>
+                        <p class="card-text">
+                            Женщины и дети имели приоритет при эвакуации.
+                            <br>
+                            <span class="badge bg-success">74% женщин</span>
+                            <span class="badge bg-danger">19% мужчин</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-star" style="font-size: 48px; color: #ffc107;"></i>
+                        <h5 class="card-title mt-3">Класс имеет значение</h5>
+                        <p class="card-text">
+                            Пассажиры 1-го класса выживали чаще.
+                            <br>
+                            <span class="badge bg-success">62% 1-й класс</span>
+                            <span class="badge bg-danger">25% 3-й класс</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-brain" style="font-size: 48px; color: #6f42c1;"></i>
+                        <h5 class="card-title mt-3">ML модель</h5>
+                        <p class="card-text">
+                            Точность модели: <strong>~82%</strong>
+                            <br>
+                            Алгоритм: Random Forest
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ПОСЛЕДНИЕ ПРЕДСКАЗАНИЯ -->
+    {% if current_user.is_authenticated and predictions %}
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header bg-white">
+                <h5><i class="fas fa-history"></i> Ваши последние предсказания</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Дата</th>
+                                <th>Класс</th>
+                                <th>Пол</th>
+                                <th>Возраст</th>
+                                <th>Результат</th>
+                                <th>Вероятность</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for pred in predictions[:5] %}
+                            <tr>
+                                <td>{{ pred.PredictionDate.strftime('%d.%m.%Y %H:%M') }}</td>
+                                <td>{{ pred.Pclass }}-й</td>
+                                <td>{% if pred.Sex == 'female' %}Женский{% else %}Мужской{% endif %}</td>
+                                <td>{{ pred.Age }} лет</td>
+                                <td>
+                                    <span class="badge bg-{% if pred.Predicted %}success{% else %}danger{% endif %}">
+                                        {% if pred.Predicted %}✅ Выжил{% else %}❌ Не выжил{% endif %}
+                                    </span>
+                                </td>
+                                <td>{{ "%.1f"|format(pred.Probability * 100) }}%</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <a href="/profile" class="btn btn-sm btn-primary">Все предсказания →</a>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <footer class="container-fluid bg-dark text-white mt-4 py-3">
+        <div class="container text-center">
+            <p class="mb-0">
+                <i class="fas fa-copyright"></i> 2026 Titanic Survival Prediction
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

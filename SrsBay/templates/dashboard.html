@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Дашборд{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4 animate__animated animate__fadeInLeft">📊 Бизнес-дашборд</h1>
+    </div>
+</div>
+
+<div class="row g-4 mb-4">
+    <div class="col-md-3 animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
+        <div class="card text-white bg-primary shadow-sm">
+            <div class="card-body"><h5>Всего пассажиров</h5><h2>{{ total }}</h2></div>
+        </div>
+    </div>
+    <div class="col-md-3 animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+        <div class="card text-white bg-success shadow-sm">
+            <div class="card-body"><h5>Выжило</h5><h2>{{ survived }}</h2></div>
+        </div>
+    </div>
+    <div class="col-md-3 animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+        <div class="card text-white bg-danger shadow-sm">
+            <div class="card-body"><h5>Погибло</h5><h2>{{ not_survived }}</h2></div>
+        </div>
+    </div>
+    <div class="col-md-3 animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+        <div class="card text-white bg-info shadow-sm">
+            <div class="card-body"><h5>Выживаемость</h5><h2>{{ "%.1f"|format(survival_rate) }}%</h2></div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4 animate__animated animate__fadeIn" style="animation-delay: 0.5s;">
+    <div class="col-md-6">
+        <div class="card shadow-sm"><div class="card-header bg-white">🥧 Распределение выживших</div><div class="card-body text-center"><img src="data:image/png;base64,{{ plots.pie_survived }}" class="img-fluid"></div></div>
+    </div>
+    <div class="col-md-6">
+        <div class="card shadow-sm"><div class="card-header bg-white">📊 Выживаемость по классам</div><div class="card-body text-center"><img src="data:image/png;base64,{{ plots.bar_pclass }}" class="img-fluid"></div></div>
+    </div>
+    <div class="col-md-6">
+        <div class="card shadow-sm"><div class="card-header bg-white">📊 Выживаемость по полу</div><div class="card-body text-center"><img src="data:image/png;base64,{{ plots.bar_sex }}" class="img-fluid"></div></div>
+    </div>
+    <div class="col-md-6">
+        <div class="card shadow-sm"><div class="card-header bg-white"> 📈 Возраст vs Цена билета</div><div class="card-body text-center"><img src="data:image/png;base64,{{ plots.scatter_age_fare }}" class="img-fluid"></div></div>
+    </div>
+    <div class="col-md-12">
+        <div class="card shadow-sm"><div class="card-header bg-white">🔥 Тепловая карта корреляций</div><div class="card-body text-center"><img src="data:image/png;base64,{{ plots.heatmap }}" class="img-fluid"></div></div>
+    </div>
+</div>
+{% endblock %}

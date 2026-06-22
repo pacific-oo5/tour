@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <div class="card shadow border-0">
+            <div class="card-header text-center text-white p-4 {% if result.survived %}bg-success animate__animated animate__bounceIn{% else %}bg-danger animate__animated animate__fadeInDown{% endif %}">
+                <h1 class="mb-0">{% if result.survived %}✅ ПАССАЖИР ВЫЖИВЕТ{% else %}❌ ПАССАЖИР ПОГИБНЕТ{% endif %}</h1>
+            </div>
+            <div class="card-body p-4 animate__animated animate__fadeIn" style="animation-delay: 0.3s;">
+                <div class="text-center mb-4">
+                    <h5 class="text-muted">Вероятность спасения: <strong>{{ "%.1f"|format(result.probability * 100) }}%</strong></h5>
+                    <div class="progress shadow-sm" style="height: 25px;">
+                        <div class="progress-bar bg-success" style="width: {{ result.probability * 100 }}%"></div>
+                        <div class="progress-bar bg-danger" style="width: {{ result.probability_death * 100 }}%"></div>
+                    </div>
+                </div>
+
+                <table class="table table-bordered table-striped mt-4">
+                    <tr><td><strong>Класс обслуживания</strong></td><td>{{ pclass }}-й класс</td></tr>
+                    <tr><td><strong>Пол пассажира</strong></td><td>{% if sex == 'male' %}Мужской{% else %}Женский{% endif %}</td></tr>
+                    <tr><td><strong>Возраст</strong></td><td>{{ age }} лет</td></tr>
+                    <tr><td><strong>Стоимость тарифа (Fare)</strong></td><td>${{ "%.2f"|format(fare) }}</td></tr>
+                    <tr><td><strong>Порт отправления</strong></td><td>{{ embarked }}</td></tr>
+                    <tr><td><strong>Родственники (Всего)</strong></td><td>{{ sibsp + parch }} чел.</td></tr>
+                </table>
+
+                <div class="d-grid gap-2 mt-4">
+                    <a href="/predict" class="btn btn-primary btn-lg">🔄 Проверить другого пассажира</a>
+                    <a href="/dashboard" class="btn btn-outline-secondary">📊 Вернуться к дашборду</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

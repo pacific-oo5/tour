@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}История{% endblock %}
+
+{% block content %}
+<h2 class="text-white"><i class="fas fa-history"></i> История предсказаний</h2>
+
+<div class="card mt-3 p-3">
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Класс</th>
+                    <th>Пол</th>
+                    <th>Возраст</th>
+                    <th>SibSp</th>
+                    <th>Parch</th>
+                    <th>Цена</th>
+                    <th>Порт</th>
+                    <th>Результат</th>
+                    <th>Вероятность</th>
+                    <th>Дата</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in predictions %}
+                <tr>
+                    <td>{{ p[0] }}</td>
+                    <td>{{ p[1] }}</td>
+                    <td>{{ p[2] }}</td>
+                    <td>{{ p[3] }}</td>
+                    <td>{{ p[4] }}</td>
+                    <td>{{ p[5] }}</td>
+                    <td>${{ "%.2f"|format(p[6]) }}</td>
+                    <td>{{ p[7] }}</td>
+                    <td>
+                        {% if p[8] == 1 %}
+                            <span class="badge bg-success">Выжил</span>
+                        {% else %}
+                            <span class="badge bg-danger">Не выжил</span>
+                        {% endif %}
+                    </td>
+                    <td>{{ "%.1f"|format(p[9] * 100) }}%</td>
+                    <td><small>{{ p[10] }}</small></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

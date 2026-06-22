@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block title %}Разведочный анализ{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">📊 Разведочный анализ данных (EDA)</h1>
+    </div>
+</div>
+
+<div class="row g-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">🥧 Распределение выживших</div>
+            <div class="card-body text-center">
+                <img src="data:image/png;base64,{{ plots.pie_survived }}" class="img-fluid">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">📊 Выживаемость по классам</div>
+            <div class="card-body text-center">
+                <img src="data:image/png;base64,{{ plots.bar_pclass }}" class="img-fluid">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">📊 Выживаемость по полу</div>
+            <div class="card-body text-center">
+                <img src="data:image/png;base64,{{ plots.bar_sex }}" class="img-fluid">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">📊 Выживаемость по порту</div>
+            <div class="card-body text-center">
+                <img src="data:image/png;base64,{{ plots.bar_embarked }}" class="img-fluid">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">📊 Количество пассажиров по классам</div>
+            <div class="card-body text-center">
+                <img src="data:image/png;base64,{{ plots.bar_pclass_count }}" class="img-fluid">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">📈 Выживаемость по возрастным группам</div>
+            <div class="card-body text-center">
+                <img src="data:image/png;base64,{{ plots.line_age }}" class="img-fluid">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">📊 Распределение возраста</div>
+            <div class="card-body text-center">
+                <img src="data:image/png;base64,{{ plots.hist_age }}" class="img-fluid">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">📊 Распределение цены билета</div>
+            <div class="card-body text-center">
+                <img src="data:image/png;base64,{{ plots.hist_fare }}" class="img-fluid">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">📈 Возраст vs Цена билета</div>
+            <div class="card-body text-center">
+                <img src="data:image/png;base64,{{ plots.scatter_age_fare }}" class="img-fluid">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">🔥 Тепловая карта корреляций</div>
+            <div class="card-body text-center">
+                <img src="data:image/png;base64,{{ plots.heatmap }}" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
